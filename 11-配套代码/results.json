@@ -1,0 +1,5185 @@
+{
+  "schema_version": 2,
+  "metadata": {
+    "created_at_utc": "2026-10-31T16:21:48.850958+00:00",
+    "duration_seconds": 1800,
+    "warmup_seconds": 60,
+    "drain_limit_seconds": 3600,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "dt_seconds": 0.01,
+    "slots_per_replica": 16,
+    "snapshot_seconds": 2.0,
+    "scenarios": [
+      {
+        "name": "homo",
+        "speeds": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "arrival_rate": 3.3
+      },
+      {
+        "name": "hetero",
+        "speeds": [
+          1,
+          1,
+          1,
+          0.6
+        ],
+        "arrival_rate": 2.9
+      }
+    ],
+    "quantile": "sorted[floor(p*(n-1))]",
+    "aggregation": "median and min/max of per-seed P99; not pooled P99 or confidence interval",
+    "workload": {
+      "output_median": 200,
+      "output_log_sigma": 1.1,
+      "output_cap": 4000,
+      "prompt_median": 1000,
+      "prompt_log_sigma": 0.8,
+      "prompt_cap": 16000,
+      "estimate_log_sigma": 0.6
+    },
+    "prefill_seconds_per_token": 0.00015,
+    "decode_step_seconds": "(0.02 + 0.0015 * active_count) / speed",
+    "python": "3.9.6",
+    "source_sha256": "f9f083d7dba20676d833ccfcaa91186313dbeddaa466d20b0d53cfe07d4d8a55"
+  },
+  "summary": {
+    "homo/rr": {
+      "p99_median": 9.695417297823383,
+      "p99_min": 5.815381560653577,
+      "p99_max": 24.897743769443423,
+      "seeds": 10
+    },
+    "homo/weighted_rr": {
+      "p99_median": 9.695417297823383,
+      "p99_min": 5.815381560653577,
+      "p99_max": 24.897743769443423,
+      "seeds": 10
+    },
+    "homo/random": {
+      "p99_median": 24.2870764449641,
+      "p99_min": 8.225374213153827,
+      "p99_max": 33.859643135108854,
+      "seeds": 10
+    },
+    "homo/least_req": {
+      "p99_median": 1.0693945383860353,
+      "p99_min": 0.8895269724672517,
+      "p99_max": 8.365967822150424,
+      "seeds": 10
+    },
+    "homo/p2c": {
+      "p99_median": 1.164984141017385,
+      "p99_min": 0.9109446851645089,
+      "p99_max": 8.845679815915446,
+      "seeds": 10
+    },
+    "homo/initial_tok": {
+      "p99_median": 14.921521852039405,
+      "p99_min": 11.6438742939323,
+      "p99_max": 25.14852171725738,
+      "seeds": 10
+    },
+    "homo/remaining_tok": {
+      "p99_median": 13.51356586748409,
+      "p99_min": 11.436329476459605,
+      "p99_max": 21.87387515560124,
+      "seeds": 10
+    },
+    "homo/remaining_tok_oracle": {
+      "p99_median": 8.808989616642805,
+      "p99_min": 5.815371856433984,
+      "p99_max": 12.844436494252705,
+      "seeds": 10
+    },
+    "homo/least_req_stale": {
+      "p99_median": 4.5122779910786335,
+      "p99_min": 3.1945383505710083,
+      "p99_max": 10.176407352056003,
+      "seeds": 10
+    },
+    "homo/p2c_stale": {
+      "p99_median": 2.124180228392163,
+      "p99_min": 1.2361568557308829,
+      "p99_max": 9.336806193148504,
+      "seeds": 10
+    },
+    "hetero/rr": {
+      "p99_median": 350.46916727333064,
+      "p99_min": 223.03085119832826,
+      "p99_max": 446.70286719407136,
+      "seeds": 10
+    },
+    "hetero/weighted_rr": {
+      "p99_median": 12.496788667002079,
+      "p99_min": 6.770797883733735,
+      "p99_max": 24.310919569211137,
+      "seeds": 10
+    },
+    "hetero/random": {
+      "p99_median": 296.1678331526332,
+      "p99_min": 217.66090410979746,
+      "p99_max": 549.5598041752589,
+      "seeds": 10
+    },
+    "hetero/least_req": {
+      "p99_median": 1.1388468891117896,
+      "p99_min": 1.0683884511934139,
+      "p99_max": 2.7376077343369616,
+      "seeds": 10
+    },
+    "hetero/p2c": {
+      "p99_median": 1.2205059160872338,
+      "p99_min": 1.1195252668574085,
+      "p99_max": 2.861753209652761,
+      "seeds": 10
+    },
+    "hetero/initial_tok": {
+      "p99_median": 17.270136803050036,
+      "p99_min": 11.698486595644226,
+      "p99_max": 23.28360063368268,
+      "seeds": 10
+    },
+    "hetero/remaining_tok": {
+      "p99_median": 16.113689022180495,
+      "p99_min": 6.762208618685918,
+      "p99_max": 22.661329934279593,
+      "seeds": 10
+    },
+    "hetero/remaining_tok_oracle": {
+      "p99_median": 9.22840112455998,
+      "p99_min": 5.365001110255093,
+      "p99_max": 13.10343660911849,
+      "seeds": 10
+    },
+    "hetero/least_req_stale": {
+      "p99_median": 3.622256422654118,
+      "p99_min": 2.3580173806453786,
+      "p99_max": 6.480778855406413,
+      "seeds": 10
+    },
+    "hetero/p2c_stale": {
+      "p99_median": 1.6720488945078387,
+      "p99_min": 1.209064051110289,
+      "p99_max": 5.610430017480667,
+      "seeds": 10
+    }
+  },
+  "runs": [
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 1,
+      "p50": 0.1814049810093934,
+      "p90": 1.856306172379277,
+      "p99": 24.897743769443423,
+      "queue_p99": 24.682182272573755,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 58,
+        "eligible_without_first_token": 16
+      },
+      "drained_at": 1865.92,
+      "assigned": [
+        1464,
+        1464,
+        1464,
+        1464
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 2,
+      "p50": 0.20176912230044763,
+      "p90": 4.660364074523386,
+      "p99": 23.976680963913623,
+      "queue_p99": 23.698722707426896,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 44,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1893.48,
+      "assigned": [
+        1477,
+        1477,
+        1477,
+        1477
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 3,
+      "p50": 0.19553766425872254,
+      "p90": 2.698313595060199,
+      "p99": 17.267053791557146,
+      "queue_p99": 17.04206847705882,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 102,
+        "eligible_without_first_token": 41
+      },
+      "drained_at": 1916.7,
+      "assigned": [
+        1524,
+        1524,
+        1523,
+        1523
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 4,
+      "p50": 0.185906788540251,
+      "p90": 2.344616716306291,
+      "p99": 10.784078945016745,
+      "queue_p99": 10.521130370938636,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 37,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1850.8,
+      "assigned": [
+        1494,
+        1494,
+        1493,
+        1493
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 5,
+      "p50": 0.173255092610475,
+      "p90": 0.707923693994644,
+      "p99": 6.087008246063874,
+      "queue_p99": 5.912089788909611,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1861.57,
+      "assigned": [
+        1491,
+        1491,
+        1491,
+        1491
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 6,
+      "p50": 0.18432169397499365,
+      "p90": 2.1091995910112473,
+      "p99": 13.517741188976402,
+      "queue_p99": 13.442779942169636,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1888.68,
+      "assigned": [
+        1464,
+        1464,
+        1464,
+        1463
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 7,
+      "p50": 0.16927503446117953,
+      "p90": 0.6661018954935116,
+      "p99": 5.815381560653577,
+      "queue_p99": 5.633524893705726,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 56,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1867.42,
+      "assigned": [
+        1466,
+        1465,
+        1465,
+        1465
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 8,
+      "p50": 0.17269891310149887,
+      "p90": 0.8833425992095272,
+      "p99": 8.60675565063002,
+      "queue_p99": 8.256055650630003,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1895.09,
+      "assigned": [
+        1497,
+        1497,
+        1496,
+        1496
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 9,
+      "p50": 0.1714388151010553,
+      "p90": 0.6215490372889008,
+      "p99": 7.633903767112656,
+      "queue_p99": 7.402903767112662,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 45,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1893.29,
+      "assigned": [
+        1479,
+        1479,
+        1479,
+        1478
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "rr",
+      "seed": 10,
+      "p50": 0.16798235148232266,
+      "p90": 0.6572875945319083,
+      "p99": 7.167657458581971,
+      "queue_p99": 7.06525027780458,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 51,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1867.49,
+      "assigned": [
+        1477,
+        1477,
+        1477,
+        1476
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 1,
+      "p50": 0.1814049810093934,
+      "p90": 1.856306172379277,
+      "p99": 24.897743769443423,
+      "queue_p99": 24.682182272573755,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 58,
+        "eligible_without_first_token": 16
+      },
+      "drained_at": 1865.92,
+      "assigned": [
+        1464,
+        1464,
+        1464,
+        1464
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 2,
+      "p50": 0.20176912230044763,
+      "p90": 4.660364074523386,
+      "p99": 23.976680963913623,
+      "queue_p99": 23.698722707426896,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 44,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1893.48,
+      "assigned": [
+        1477,
+        1477,
+        1477,
+        1477
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 3,
+      "p50": 0.19553766425872254,
+      "p90": 2.698313595060199,
+      "p99": 17.267053791557146,
+      "queue_p99": 17.04206847705882,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 102,
+        "eligible_without_first_token": 41
+      },
+      "drained_at": 1916.7,
+      "assigned": [
+        1524,
+        1524,
+        1523,
+        1523
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 4,
+      "p50": 0.185906788540251,
+      "p90": 2.344616716306291,
+      "p99": 10.784078945016745,
+      "queue_p99": 10.521130370938636,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 37,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1850.8,
+      "assigned": [
+        1494,
+        1494,
+        1493,
+        1493
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 5,
+      "p50": 0.173255092610475,
+      "p90": 0.707923693994644,
+      "p99": 6.087008246063874,
+      "queue_p99": 5.912089788909611,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1861.57,
+      "assigned": [
+        1491,
+        1491,
+        1491,
+        1491
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 6,
+      "p50": 0.18432169397499365,
+      "p90": 2.1091995910112473,
+      "p99": 13.517741188976402,
+      "queue_p99": 13.442779942169636,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1888.68,
+      "assigned": [
+        1464,
+        1464,
+        1464,
+        1463
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 7,
+      "p50": 0.16927503446117953,
+      "p90": 0.6661018954935116,
+      "p99": 5.815381560653577,
+      "queue_p99": 5.633524893705726,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 56,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1867.42,
+      "assigned": [
+        1466,
+        1465,
+        1465,
+        1465
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 8,
+      "p50": 0.17269891310149887,
+      "p90": 0.8833425992095272,
+      "p99": 8.60675565063002,
+      "queue_p99": 8.256055650630003,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1895.09,
+      "assigned": [
+        1497,
+        1497,
+        1496,
+        1496
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 9,
+      "p50": 0.1714388151010553,
+      "p90": 0.6215490372889008,
+      "p99": 7.633903767112656,
+      "queue_p99": 7.402903767112662,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 45,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1893.29,
+      "assigned": [
+        1479,
+        1479,
+        1479,
+        1478
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "weighted_rr",
+      "seed": 10,
+      "p50": 0.16798235148232266,
+      "p90": 0.6572875945319083,
+      "p99": 7.167657458581971,
+      "queue_p99": 7.06525027780458,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 51,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1867.49,
+      "assigned": [
+        1477,
+        1477,
+        1477,
+        1476
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 1,
+      "p50": 0.2165457101895072,
+      "p90": 6.354141395391935,
+      "p99": 33.859643135108854,
+      "queue_p99": 33.64961573028313,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1836.26,
+      "assigned": [
+        1497,
+        1428,
+        1507,
+        1424
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 2,
+      "p50": 0.21659929383389454,
+      "p90": 6.786654523629863,
+      "p99": 23.708206235817443,
+      "queue_p99": 23.525360312795726,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 6
+      },
+      "drained_at": 1888.74,
+      "assigned": [
+        1474,
+        1428,
+        1511,
+        1495
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 3,
+      "p50": 0.29856723554945575,
+      "p90": 12.318307128378137,
+      "p99": 29.28739690089003,
+      "queue_p99": 29.127996981258605,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 104,
+        "eligible_without_first_token": 40
+      },
+      "drained_at": 1921.86,
+      "assigned": [
+        1540,
+        1477,
+        1485,
+        1592
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 4,
+      "p50": 0.20333288186506593,
+      "p90": 3.659214750297906,
+      "p99": 13.861809025413379,
+      "queue_p99": 13.645465432138963,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 41,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1842.74,
+      "assigned": [
+        1477,
+        1487,
+        1524,
+        1486
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 5,
+      "p50": 0.18909465474962417,
+      "p90": 2.2651531983746054,
+      "p99": 29.918477947303018,
+      "queue_p99": 29.581513843467974,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1864.51,
+      "assigned": [
+        1495,
+        1472,
+        1506,
+        1491
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 6,
+      "p50": 0.21983809421260503,
+      "p90": 8.77756617517332,
+      "p99": 24.865946654110758,
+      "queue_p99": 24.82439665411073,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1894.38,
+      "assigned": [
+        1457,
+        1475,
+        1414,
+        1509
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 7,
+      "p50": 0.19287498034918826,
+      "p90": 2.238660583303499,
+      "p99": 8.890308918251549,
+      "queue_p99": 8.670043428445297,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 58,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1866.0,
+      "assigned": [
+        1399,
+        1462,
+        1482,
+        1518
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 8,
+      "p50": 0.20861339794373635,
+      "p90": 5.194522627361039,
+      "p99": 28.49873185386184,
+      "queue_p99": 28.282819862341967,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 46,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1878.49,
+      "assigned": [
+        1487,
+        1538,
+        1491,
+        1470
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 9,
+      "p50": 0.1853235638100159,
+      "p90": 1.6999045944319278,
+      "p99": 8.225374213153827,
+      "queue_p99": 7.989454361904336,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 44,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1889.61,
+      "assigned": [
+        1504,
+        1420,
+        1494,
+        1497
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "random",
+      "seed": 10,
+      "p50": 0.18292474543636672,
+      "p90": 1.3291734533813724,
+      "p99": 15.43220703166071,
+      "queue_p99": 15.110457031660758,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 52,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1869.73,
+      "assigned": [
+        1481,
+        1462,
+        1477,
+        1487
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 1,
+      "p50": 0.16008646347836475,
+      "p90": 0.4449822285175742,
+      "p99": 1.2994148430598216,
+      "queue_p99": 0.8181334029434311,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1834.14,
+      "assigned": [
+        1411,
+        1476,
+        1517,
+        1452
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 2,
+      "p50": 0.15650122050635673,
+      "p90": 0.47413466880425403,
+      "p99": 2.409291057080736,
+      "queue_p99": 2.21976672997107,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1886.7,
+      "assigned": [
+        1452,
+        1509,
+        1443,
+        1504
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 3,
+      "p50": 0.16882868277593843,
+      "p90": 0.6442503834939544,
+      "p99": 8.365967822150424,
+      "queue_p99": 8.112612601933506,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 79,
+        "eligible_without_first_token": 16
+      },
+      "drained_at": 1896.39,
+      "assigned": [
+        1556,
+        1521,
+        1499,
+        1518
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 4,
+      "p50": 0.1559355081396916,
+      "p90": 0.4263675421379389,
+      "p99": 1.0656605459500952,
+      "queue_p99": 0.009968155382239274,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 35,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1847.46,
+      "assigned": [
+        1480,
+        1541,
+        1488,
+        1465
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 5,
+      "p50": 0.15610222835675813,
+      "p90": 0.4268986545837379,
+      "p99": 0.9809796849089594,
+      "queue_p99": 0.009914889716355901,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1854.58,
+      "assigned": [
+        1500,
+        1527,
+        1481,
+        1456
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 6,
+      "p50": 0.1553348589923189,
+      "p90": 0.4292952208877523,
+      "p99": 1.2682209300968452,
+      "queue_p99": 0.04053204662022836,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1888.19,
+      "assigned": [
+        1464,
+        1500,
+        1483,
+        1408
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 7,
+      "p50": 0.15677556889227162,
+      "p90": 0.4508956484278315,
+      "p99": 1.0731285308219753,
+      "queue_p99": 0.009970272197278973,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 57,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1865.03,
+      "assigned": [
+        1403,
+        1496,
+        1465,
+        1497
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 8,
+      "p50": 0.1543032248016516,
+      "p90": 0.4080495536322246,
+      "p99": 0.8895269724672517,
+      "queue_p99": 0.009893468421751095,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1880.88,
+      "assigned": [
+        1527,
+        1506,
+        1410,
+        1543
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 9,
+      "p50": 0.15716524167487478,
+      "p90": 0.4167593503493663,
+      "p99": 0.9989053952065206,
+      "queue_p99": 0.00991084722670621,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1893.63,
+      "assigned": [
+        1501,
+        1431,
+        1441,
+        1542
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req",
+      "seed": 10,
+      "p50": 0.15586067196466047,
+      "p90": 0.4362046239398296,
+      "p99": 1.0018688574157295,
+      "queue_p99": 0.009932603268197226,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1870.09,
+      "assigned": [
+        1462,
+        1458,
+        1525,
+        1462
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 1,
+      "p50": 0.16139455846087003,
+      "p90": 0.4584393206732784,
+      "p99": 1.7727796761641912,
+      "queue_p99": 1.3730296761641512,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1834.41,
+      "assigned": [
+        1459,
+        1410,
+        1499,
+        1488
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 2,
+      "p50": 0.15738075475604774,
+      "p90": 0.49236123340369886,
+      "p99": 2.7938819274070283,
+      "queue_p99": 2.541076135162484,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1882.5,
+      "assigned": [
+        1489,
+        1375,
+        1537,
+        1507
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 3,
+      "p50": 0.1718835805125991,
+      "p90": 0.7410784911912742,
+      "p99": 8.845679815915446,
+      "queue_p99": 8.716575484745363,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 83,
+        "eligible_without_first_token": 19
+      },
+      "drained_at": 1895.11,
+      "assigned": [
+        1543,
+        1523,
+        1519,
+        1509
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 4,
+      "p50": 0.15740064353349226,
+      "p90": 0.43613380237070487,
+      "p99": 1.2349227238653384,
+      "queue_p99": 0.4278182267162265,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 37,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1849.09,
+      "assigned": [
+        1565,
+        1506,
+        1493,
+        1410
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 5,
+      "p50": 0.15610489124230753,
+      "p90": 0.4277860050485742,
+      "p99": 0.999758818996952,
+      "queue_p99": 0.009931195547352445,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1854.97,
+      "assigned": [
+        1423,
+        1481,
+        1537,
+        1523
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 6,
+      "p50": 0.15642118322108445,
+      "p90": 0.4403521122993652,
+      "p99": 1.4468118126162608,
+      "queue_p99": 0.5992299965721486,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1892.87,
+      "assigned": [
+        1510,
+        1447,
+        1452,
+        1446
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 7,
+      "p50": 0.15658193828858202,
+      "p90": 0.4481525259796513,
+      "p99": 1.0950455581694314,
+      "queue_p99": 0.009965985268195254,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 57,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1863.77,
+      "assigned": [
+        1560,
+        1429,
+        1452,
+        1420
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 8,
+      "p50": 0.15448196234865463,
+      "p90": 0.4089477399500083,
+      "p99": 0.9109446851645089,
+      "queue_p99": 0.00991194990774602,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1885.47,
+      "assigned": [
+        1524,
+        1529,
+        1438,
+        1495
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 9,
+      "p50": 0.15796577162029735,
+      "p90": 0.4225965058574275,
+      "p99": 1.079546990327728,
+      "queue_p99": 0.009963294172564474,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1888.29,
+      "assigned": [
+        1467,
+        1457,
+        1497,
+        1494
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c",
+      "seed": 10,
+      "p50": 0.156014837266639,
+      "p90": 0.4386607354545049,
+      "p99": 1.0302563792925525,
+      "queue_p99": 0.00995303846320894,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1875.1,
+      "assigned": [
+        1429,
+        1510,
+        1430,
+        1538
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 1,
+      "p50": 0.28655031903224426,
+      "p90": 6.842836709727862,
+      "p99": 22.87931156974605,
+      "queue_p99": 22.52405203653484,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1839.78,
+      "assigned": [
+        1395,
+        1584,
+        1388,
+        1489
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 2,
+      "p50": 0.2711589019522762,
+      "p90": 6.254077169253492,
+      "p99": 13.022031331769767,
+      "queue_p99": 12.81218623211089,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 41,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1888.6,
+      "assigned": [
+        1528,
+        1447,
+        1498,
+        1435
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 3,
+      "p50": 0.5583221439633235,
+      "p90": 13.98155922032879,
+      "p99": 25.14852171725738,
+      "queue_p99": 24.965959684302845,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 106,
+        "eligible_without_first_token": 43
+      },
+      "drained_at": 1903.41,
+      "assigned": [
+        1480,
+        1550,
+        1390,
+        1674
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 4,
+      "p50": 0.29034754318206524,
+      "p90": 6.923413978616281,
+      "p99": 15.927958827351404,
+      "queue_p99": 15.720539112711094,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 5
+      },
+      "drained_at": 1847.79,
+      "assigned": [
+        1474,
+        1457,
+        1449,
+        1594
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 5,
+      "p50": 0.250474699563938,
+      "p90": 4.7212650940473395,
+      "p99": 11.903314193562721,
+      "queue_p99": 11.641011309030318,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1857.75,
+      "assigned": [
+        1396,
+        1546,
+        1534,
+        1488
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 6,
+      "p50": 0.28725456833012686,
+      "p90": 7.923450579613132,
+      "p99": 17.381477847213887,
+      "queue_p99": 17.13641013129029,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 44,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1885.3,
+      "assigned": [
+        1331,
+        1502,
+        1616,
+        1406
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 7,
+      "p50": 0.23788494094711155,
+      "p90": 5.611766538344,
+      "p99": 13.674106518593703,
+      "queue_p99": 13.501126105360981,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 62,
+        "eligible_without_first_token": 16
+      },
+      "drained_at": 1864.73,
+      "assigned": [
+        1515,
+        1383,
+        1505,
+        1458
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 8,
+      "p50": 0.2279869283609628,
+      "p90": 4.9211766944169995,
+      "p99": 13.915084876727406,
+      "queue_p99": 13.585534876727479,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 48,
+        "eligible_without_first_token": 8
+      },
+      "drained_at": 1881.26,
+      "assigned": [
+        1603,
+        1432,
+        1509,
+        1442
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 9,
+      "p50": 0.23550536141783596,
+      "p90": 6.247652361898247,
+      "p99": 16.114758033339967,
+      "queue_p99": 15.952924319666636,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 55,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1889.84,
+      "assigned": [
+        1469,
+        1547,
+        1470,
+        1429
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "initial_tok",
+      "seed": 10,
+      "p50": 0.22583238038788522,
+      "p90": 4.353375995503711,
+      "p99": 11.6438742939323,
+      "queue_p99": 11.41846431485601,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 54,
+        "eligible_without_first_token": 6
+      },
+      "drained_at": 1865.94,
+      "assigned": [
+        1545,
+        1453,
+        1336,
+        1573
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 1,
+      "p50": 0.292292371228541,
+      "p90": 8.626898682796309,
+      "p99": 16.372098498934292,
+      "queue_p99": 16.12683943576576,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1834.3,
+      "assigned": [
+        1272,
+        1320,
+        1645,
+        1619
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 2,
+      "p50": 0.3495758846906938,
+      "p90": 8.35842816269701,
+      "p99": 14.868960642844513,
+      "queue_p99": 14.753010642844515,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 44,
+        "eligible_without_first_token": 4
+      },
+      "drained_at": 1881.53,
+      "assigned": [
+        1485,
+        1634,
+        1480,
+        1309
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 3,
+      "p50": 0.8578697749803723,
+      "p90": 11.1017662378556,
+      "p99": 21.814318834549795,
+      "queue_p99": 21.523223978165106,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 110,
+        "eligible_without_first_token": 48
+      },
+      "drained_at": 1896.64,
+      "assigned": [
+        1497,
+        1569,
+        1596,
+        1432
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 4,
+      "p50": 0.3151034312011234,
+      "p90": 7.406932982937519,
+      "p99": 15.796078849041123,
+      "queue_p99": 15.540101108433191,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1848.67,
+      "assigned": [
+        1461,
+        1518,
+        1502,
+        1493
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 5,
+      "p50": 0.30394594042445533,
+      "p90": 6.362151582773095,
+      "p99": 11.83654637838049,
+      "queue_p99": 11.665387831503551,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 48,
+        "eligible_without_first_token": 4
+      },
+      "drained_at": 1862.29,
+      "assigned": [
+        1406,
+        1545,
+        1462,
+        1551
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 6,
+      "p50": 0.31059368499245466,
+      "p90": 9.144628725448115,
+      "p99": 21.87387515560124,
+      "queue_p99": 21.676860615744317,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1885.12,
+      "assigned": [
+        1413,
+        1353,
+        1662,
+        1427
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 7,
+      "p50": 0.24804687524863311,
+      "p90": 5.459296159344603,
+      "p99": 11.676071610039457,
+      "queue_p99": 11.494871610039468,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 59,
+        "eligible_without_first_token": 5
+      },
+      "drained_at": 1866.87,
+      "assigned": [
+        1457,
+        1535,
+        1462,
+        1407
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 8,
+      "p50": 0.2797646176205717,
+      "p90": 6.015230671452855,
+      "p99": 12.158171092123666,
+      "queue_p99": 12.02197109212375,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 51,
+        "eligible_without_first_token": 8
+      },
+      "drained_at": 1877.25,
+      "assigned": [
+        1486,
+        1597,
+        1490,
+        1413
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 9,
+      "p50": 0.25886807003757895,
+      "p90": 5.42794139368425,
+      "p99": 11.436329476459605,
+      "queue_p99": 11.18863711247991,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 64,
+        "eligible_without_first_token": 16
+      },
+      "drained_at": 1889.82,
+      "assigned": [
+        1530,
+        1458,
+        1480,
+        1447
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok",
+      "seed": 10,
+      "p50": 0.23128763325507862,
+      "p90": 4.179062707702599,
+      "p99": 12.05339589885773,
+      "queue_p99": 11.796738602514779,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 56,
+        "eligible_without_first_token": 8
+      },
+      "drained_at": 1855.52,
+      "assigned": [
+        1530,
+        1453,
+        1449,
+        1475
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 1,
+      "p50": 0.21421435674486133,
+      "p90": 3.267551930555328,
+      "p99": 9.242558769134803,
+      "queue_p99": 9.071777006057118,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1834.0,
+      "assigned": [
+        1461,
+        1518,
+        1372,
+        1505
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 2,
+      "p50": 0.22884840642336712,
+      "p90": 3.842536282083529,
+      "p99": 8.633236437932169,
+      "queue_p99": 8.445907347369427,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 44,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1888.14,
+      "assigned": [
+        1543,
+        1331,
+        1453,
+        1581
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 3,
+      "p50": 0.24261945270052365,
+      "p90": 5.211511297157585,
+      "p99": 12.844436494252705,
+      "queue_p99": 12.60446274238575,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 98,
+        "eligible_without_first_token": 37
+      },
+      "drained_at": 1904.06,
+      "assigned": [
+        1471,
+        1504,
+        1645,
+        1474
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 4,
+      "p50": 0.24087798663033766,
+      "p90": 3.876290079143075,
+      "p99": 8.98474279535344,
+      "queue_p99": 8.735323709757097,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 34,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1842.67,
+      "assigned": [
+        1454,
+        1646,
+        1280,
+        1594
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 5,
+      "p50": 0.20157815483042896,
+      "p90": 1.7836322861542158,
+      "p99": 5.815371856433984,
+      "queue_p99": 5.590369004977447,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1851.59,
+      "assigned": [
+        1649,
+        1567,
+        1355,
+        1393
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 6,
+      "p50": 0.22736988980329897,
+      "p90": 3.928431508889389,
+      "p99": 9.618495734714998,
+      "queue_p99": 9.402473449960326,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1884.37,
+      "assigned": [
+        1432,
+        1460,
+        1638,
+        1325
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 7,
+      "p50": 0.20735465060138836,
+      "p90": 2.4686838950046877,
+      "p99": 7.340268831777621,
+      "queue_p99": 7.027068831777569,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 63,
+        "eligible_without_first_token": 8
+      },
+      "drained_at": 1855.85,
+      "assigned": [
+        1446,
+        1522,
+        1486,
+        1407
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 8,
+      "p50": 0.2254777210927159,
+      "p90": 3.341621614975452,
+      "p99": 9.415788554218352,
+      "queue_p99": 9.222728445177268,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1877.34,
+      "assigned": [
+        1469,
+        1613,
+        1440,
+        1464
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 9,
+      "p50": 0.20305373185260578,
+      "p90": 1.8242604302957943,
+      "p99": 5.870779731939535,
+      "queue_p99": 5.574631753838503,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 46,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1885.14,
+      "assigned": [
+        1475,
+        1476,
+        1542,
+        1422
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "remaining_tok_oracle",
+      "seed": 10,
+      "p50": 0.20127791791946947,
+      "p90": 2.729264079280483,
+      "p99": 7.250320554134305,
+      "queue_p99": 7.071765077680425,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 52,
+        "eligible_without_first_token": 6
+      },
+      "drained_at": 1861.77,
+      "assigned": [
+        1462,
+        1358,
+        1505,
+        1582
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 1,
+      "p50": 0.1696801003075734,
+      "p90": 0.6012773566152418,
+      "p99": 5.005131004068744,
+      "queue_p99": 4.861561442813809,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1836.3,
+      "assigned": [
+        1386,
+        1469,
+        1505,
+        1496
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 2,
+      "p50": 0.16834726835895708,
+      "p90": 0.7059178513801498,
+      "p99": 5.275019425674216,
+      "queue_p99": 5.019323695172034,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1886.33,
+      "assigned": [
+        1429,
+        1502,
+        1443,
+        1534
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 3,
+      "p50": 0.18751022921179583,
+      "p90": 2.1106144007133025,
+      "p99": 10.176407352056003,
+      "queue_p99": 10.00185506402255,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 81,
+        "eligible_without_first_token": 19
+      },
+      "drained_at": 1902.22,
+      "assigned": [
+        1535,
+        1581,
+        1456,
+        1522
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 4,
+      "p50": 0.1703873564033529,
+      "p90": 0.6934291042945802,
+      "p99": 4.972727161856028,
+      "queue_p99": 4.842638994420383,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 38,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1845.99,
+      "assigned": [
+        1486,
+        1456,
+        1459,
+        1573
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 5,
+      "p50": 0.16644753137256885,
+      "p90": 0.5439053133884499,
+      "p99": 3.1945383505710083,
+      "queue_p99": 2.976524109619959,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1862.37,
+      "assigned": [
+        1484,
+        1466,
+        1484,
+        1530
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 6,
+      "p50": 0.1678970310350678,
+      "p90": 0.674325611687209,
+      "p99": 5.3452601448816495,
+      "queue_p99": 5.011653175378569,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 41,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1890.38,
+      "assigned": [
+        1468,
+        1462,
+        1451,
+        1474
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 7,
+      "p50": 0.16502642915986598,
+      "p90": 0.573677427767052,
+      "p99": 3.9362714450852536,
+      "queue_p99": 3.6122612227536592,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 57,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1858.19,
+      "assigned": [
+        1427,
+        1529,
+        1460,
+        1445
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 8,
+      "p50": 0.1633394197938287,
+      "p90": 0.537039940108798,
+      "p99": 3.53937845028463,
+      "queue_p99": 3.3135583700549205,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1883.44,
+      "assigned": [
+        1538,
+        1506,
+        1431,
+        1511
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 9,
+      "p50": 0.16729417902388377,
+      "p90": 0.5352808438990451,
+      "p99": 3.5845938537709117,
+      "queue_p99": 3.4709422881323917,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1886.82,
+      "assigned": [
+        1487,
+        1434,
+        1452,
+        1542
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "least_req_stale",
+      "seed": 10,
+      "p50": 0.16432508184277594,
+      "p90": 0.5528989115740615,
+      "p99": 4.051828820301239,
+      "queue_p99": 3.784481100401422,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 50,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1869.91,
+      "assigned": [
+        1480,
+        1481,
+        1534,
+        1412
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 1,
+      "p50": 0.1630576890663633,
+      "p90": 0.49092579563196637,
+      "p99": 2.6815804780310373,
+      "queue_p99": 2.3263004541777264,
+      "n": 5682,
+      "eligible": 5682,
+      "arrived": 5856,
+      "completed": 5856,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1832.5,
+      "assigned": [
+        1425,
+        1459,
+        1507,
+        1465
+      ],
+      "workload_sha256": "d2f7252c55aea115e79cc0094e391207c470ccda4371da0c853bf966b60f6e42"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 2,
+      "p50": 0.15890568011894857,
+      "p90": 0.5110780226191309,
+      "p99": 3.5272744463306935,
+      "queue_p99": 3.2529989074498644,
+      "n": 5703,
+      "eligible": 5703,
+      "arrived": 5908,
+      "completed": 5908,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1889.46,
+      "assigned": [
+        1435,
+        1467,
+        1541,
+        1465
+      ],
+      "workload_sha256": "4fa95c6093ff899fd188ad42d2df31f3a72d9f893ef2b4a1e59c43697f4e1510"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 3,
+      "p50": 0.17527709023602256,
+      "p90": 1.0635465614281827,
+      "p99": 9.336806193148504,
+      "queue_p99": 8.830151653938856,
+      "n": 5877,
+      "eligible": 5877,
+      "arrived": 6094,
+      "completed": 6094,
+      "horizon": {
+        "pending_total": 85,
+        "eligible_without_first_token": 21
+      },
+      "drained_at": 1900.44,
+      "assigned": [
+        1524,
+        1472,
+        1505,
+        1593
+      ],
+      "workload_sha256": "96157e40f9365eff6f0e1a261d4556bdf0873f6e5a9e958f01f9327c77370aee"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 4,
+      "p50": 0.16094573249347377,
+      "p90": 0.48992755793801734,
+      "p99": 2.390910819661258,
+      "queue_p99": 2.117021561768297,
+      "n": 5789,
+      "eligible": 5789,
+      "arrived": 5974,
+      "completed": 5974,
+      "horizon": {
+        "pending_total": 37,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1849.11,
+      "assigned": [
+        1458,
+        1585,
+        1512,
+        1419
+      ],
+      "workload_sha256": "d86a6ccec432f9fbc380c61b0ed7475093abf497d1a062471faff85efaca1681"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 5,
+      "p50": 0.15803565188230095,
+      "p90": 0.4466436716867861,
+      "p99": 1.2361568557308829,
+      "queue_p99": 0.20803987548379155,
+      "n": 5765,
+      "eligible": 5765,
+      "arrived": 5964,
+      "completed": 5964,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1858.31,
+      "assigned": [
+        1473,
+        1482,
+        1468,
+        1541
+      ],
+      "workload_sha256": "085a14c7768390661120efefc38869e6b4ec340ca83710ad31e1ad64e7237f44"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 6,
+      "p50": 0.1603500507355875,
+      "p90": 0.4825020584212325,
+      "p99": 2.29104089064424,
+      "queue_p99": 1.9468259914174268,
+      "n": 5672,
+      "eligible": 5672,
+      "arrived": 5855,
+      "completed": 5855,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1890.0,
+      "assigned": [
+        1512,
+        1420,
+        1488,
+        1435
+      ],
+      "workload_sha256": "ec236e6d376d87d54448e60e615151d8b471e9fcbeb3e738c1fb4d5b6124bb19"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 7,
+      "p50": 0.15837096335043555,
+      "p90": 0.4739187196034891,
+      "p99": 1.2849495938721702,
+      "queue_p99": 0.9283134340948891,
+      "n": 5652,
+      "eligible": 5652,
+      "arrived": 5861,
+      "completed": 5861,
+      "horizon": {
+        "pending_total": 56,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1866.47,
+      "assigned": [
+        1515,
+        1477,
+        1481,
+        1388
+      ],
+      "workload_sha256": "adae57dbc070cecd79c5437f104758c2e773ec5c09340917fd4a233ff84ac97d"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 8,
+      "p50": 0.15608561374779129,
+      "p90": 0.4323646047701004,
+      "p99": 1.2479144912529136,
+      "queue_p99": 0.5077939783462284,
+      "n": 5803,
+      "eligible": 5803,
+      "arrived": 5986,
+      "completed": 5986,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1884.57,
+      "assigned": [
+        1487,
+        1476,
+        1454,
+        1569
+      ],
+      "workload_sha256": "9a3dce4ab907591facf26d18133ddb8703382b91f45b7394bfd6faeaad0cca53"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 9,
+      "p50": 0.15940229522504978,
+      "p90": 0.4347839311867574,
+      "p99": 1.3488745074059807,
+      "queue_p99": 0.7343259224862777,
+      "n": 5740,
+      "eligible": 5740,
+      "arrived": 5915,
+      "completed": 5915,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1890.21,
+      "assigned": [
+        1404,
+        1508,
+        1511,
+        1492
+      ],
+      "workload_sha256": "4ef3ec0943445b3d1ba9b026f6ed9226c164623a69b998e8a39298be3abeb558"
+    },
+    {
+      "scenario": "homo",
+      "policy": "p2c_stale",
+      "seed": 10,
+      "p50": 0.15850767121747822,
+      "p90": 0.46760482573279205,
+      "p99": 1.957319566140086,
+      "queue_p99": 1.5252502778046164,
+      "n": 5741,
+      "eligible": 5741,
+      "arrived": 5907,
+      "completed": 5907,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1871.8,
+      "assigned": [
+        1463,
+        1485,
+        1483,
+        1476
+      ],
+      "workload_sha256": "6fe976bd7ed0863c55a46cf299225d12a8765dfa3b5f03d4d69a536275a26262"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 1,
+      "p50": 0.2301876580888802,
+      "p90": 196.48130323311898,
+      "p99": 351.31115883814414,
+      "queue_p99": 350.923287075992,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 276,
+        "eligible_without_first_token": 225
+      },
+      "drained_at": 2200.08,
+      "assigned": [
+        1294,
+        1294,
+        1294,
+        1294
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 2,
+      "p50": 0.23181209547453818,
+      "p90": 283.91164359131335,
+      "p99": 446.3534566745168,
+      "queue_p99": 446.04120667451684,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 317,
+        "eligible_without_first_token": 272
+      },
+      "drained_at": 2309.18,
+      "assigned": [
+        1310,
+        1310,
+        1310,
+        1310
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 3,
+      "p50": 0.2298995930105434,
+      "p90": 282.16630582021526,
+      "p99": 446.70286719407136,
+      "queue_p99": 446.54986719407157,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 332,
+        "eligible_without_first_token": 286
+      },
+      "drained_at": 2403.04,
+      "assigned": [
+        1340,
+        1339,
+        1339,
+        1339
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 4,
+      "p50": 0.2188090664833453,
+      "p90": 254.16717747772918,
+      "p99": 367.7834338441337,
+      "queue_p99": 367.5078386524399,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 250,
+        "eligible_without_first_token": 207
+      },
+      "drained_at": 2289.78,
+      "assigned": [
+        1321,
+        1321,
+        1321,
+        1320
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 5,
+      "p50": 0.2214127551417846,
+      "p90": 226.76080354069404,
+      "p99": 349.62717570851714,
+      "queue_p99": 349.4886757085171,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 275,
+        "eligible_without_first_token": 232
+      },
+      "drained_at": 2247.97,
+      "assigned": [
+        1318,
+        1318,
+        1318,
+        1318
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 6,
+      "p50": 0.22681493203322134,
+      "p90": 243.4507243919286,
+      "p99": 366.3824265910657,
+      "queue_p99": 366.2652021901588,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 270,
+        "eligible_without_first_token": 240
+      },
+      "drained_at": 2247.31,
+      "assigned": [
+        1289,
+        1289,
+        1289,
+        1289
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 7,
+      "p50": 0.21638799505802808,
+      "p90": 139.68243824933052,
+      "p99": 294.41927213469853,
+      "queue_p99": 293.90225704589034,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 224,
+        "eligible_without_first_token": 178
+      },
+      "drained_at": 2200.9,
+      "assigned": [
+        1287,
+        1287,
+        1286,
+        1286
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 8,
+      "p50": 0.21309103954069997,
+      "p90": 118.5107156470508,
+      "p99": 260.10815281083865,
+      "queue_p99": 259.62340281083857,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 211,
+        "eligible_without_first_token": 166
+      },
+      "drained_at": 2143.1,
+      "assigned": [
+        1331,
+        1331,
+        1331,
+        1330
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 9,
+      "p50": 0.22555484452482233,
+      "p90": 100.30698964128715,
+      "p99": 223.03085119832826,
+      "queue_p99": 222.47521604004396,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 179,
+        "eligible_without_first_token": 140
+      },
+      "drained_at": 2107.24,
+      "assigned": [
+        1299,
+        1299,
+        1299,
+        1298
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "rr",
+      "seed": 10,
+      "p50": 0.21951499557144416,
+      "p90": 208.94596183042177,
+      "p99": 302.07550647348626,
+      "queue_p99": 301.79602497996825,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 246,
+        "eligible_without_first_token": 205
+      },
+      "drained_at": 2228.47,
+      "assigned": [
+        1295,
+        1294,
+        1294,
+        1294
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 1,
+      "p50": 0.18340168474446727,
+      "p90": 0.7717936454564551,
+      "p99": 13.172381239164679,
+      "queue_p99": 12.756065613006285,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 56,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1889.65,
+      "assigned": [
+        1438,
+        1438,
+        1437,
+        863
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 2,
+      "p50": 0.19061169921997134,
+      "p90": 1.21318862232647,
+      "p99": 11.821196094839479,
+      "queue_p99": 11.717902918434902,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 58,
+        "eligible_without_first_token": 6
+      },
+      "drained_at": 1877.22,
+      "assigned": [
+        1456,
+        1456,
+        1455,
+        873
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 3,
+      "p50": 0.2168539296912968,
+      "p90": 4.0810357481288975,
+      "p99": 24.310919569211137,
+      "queue_p99": 24.045248384550405,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 51,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1914.01,
+      "assigned": [
+        1488,
+        1488,
+        1488,
+        893
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 4,
+      "p50": 0.20063869037664972,
+      "p90": 2.5286096570343943,
+      "p99": 15.767168677087739,
+      "queue_p99": 15.470468677087638,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1942.31,
+      "assigned": [
+        1468,
+        1467,
+        1467,
+        881
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 5,
+      "p50": 0.19213924013638461,
+      "p90": 1.0235634046889572,
+      "p99": 9.918967986710868,
+      "queue_p99": 9.75496798671088,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 48,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1853.6,
+      "assigned": [
+        1465,
+        1464,
+        1464,
+        879
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 6,
+      "p50": 0.19635281014461725,
+      "p90": 1.6265397646631072,
+      "p99": 18.66306215284817,
+      "queue_p99": 18.493040333699014,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 26,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1882.88,
+      "assigned": [
+        1432,
+        1432,
+        1432,
+        860
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 7,
+      "p50": 0.18395910368514024,
+      "p90": 0.7361218667228115,
+      "p99": 6.770797883733735,
+      "queue_p99": 6.595597883733717,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 50,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1933.11,
+      "assigned": [
+        1430,
+        1429,
+        1429,
+        858
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 8,
+      "p50": 0.18712314494280236,
+      "p90": 0.9815885251079521,
+      "p99": 10.418553461089743,
+      "queue_p99": 10.28145932639518,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 41,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1889.79,
+      "assigned": [
+        1479,
+        1479,
+        1478,
+        887
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 9,
+      "p50": 0.18802493514203888,
+      "p90": 0.7897215807498696,
+      "p99": 10.036920130163026,
+      "queue_p99": 9.85520424591482,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 36,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1887.8,
+      "assigned": [
+        1443,
+        1443,
+        1443,
+        866
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "weighted_rr",
+      "seed": 10,
+      "p50": 0.1805184538199569,
+      "p90": 0.7076776356186656,
+      "p99": 13.525640701054954,
+      "queue_p99": 13.389740701054961,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 4
+      },
+      "drained_at": 1872.37,
+      "assigned": [
+        1438,
+        1438,
+        1438,
+        863
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 1,
+      "p50": 0.2570126519653968,
+      "p90": 142.28259139965326,
+      "p99": 256.98235300159536,
+      "queue_p99": 256.6219623552081,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 232,
+        "eligible_without_first_token": 177
+      },
+      "drained_at": 2118.08,
+      "assigned": [
+        1332,
+        1253,
+        1340,
+        1251
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 2,
+      "p50": 0.25800976001369236,
+      "p90": 251.6466194317768,
+      "p99": 382.7995942771988,
+      "queue_p99": 382.4835942771988,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 303,
+        "eligible_without_first_token": 250
+      },
+      "drained_at": 2204.68,
+      "assigned": [
+        1321,
+        1251,
+        1352,
+        1316
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 3,
+      "p50": 0.2690499058048772,
+      "p90": 356.8154147509315,
+      "p99": 549.5598041752589,
+      "queue_p99": 549.2460541752591,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 402,
+        "eligible_without_first_token": 356
+      },
+      "drained_at": 2466.49,
+      "assigned": [
+        1357,
+        1307,
+        1305,
+        1388
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 4,
+      "p50": 0.23554692722723303,
+      "p90": 190.96352490243385,
+      "p99": 311.45820473813524,
+      "queue_p99": 311.2477047381353,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 234,
+        "eligible_without_first_token": 190
+      },
+      "drained_at": 2281.29,
+      "assigned": [
+        1326,
+        1307,
+        1344,
+        1306
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 5,
+      "p50": 0.24584564111569307,
+      "p90": 185.6516263848148,
+      "p99": 354.5605057139767,
+      "queue_p99": 354.1083277307457,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 270,
+        "eligible_without_first_token": 226
+      },
+      "drained_at": 2252.05,
+      "assigned": [
+        1335,
+        1311,
+        1321,
+        1305
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 6,
+      "p50": 0.257180427577282,
+      "p90": 289.0458403096284,
+      "p99": 440.3345322574246,
+      "queue_p99": 440.17528543295543,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 311,
+        "eligible_without_first_token": 282
+      },
+      "drained_at": 2344.19,
+      "assigned": [
+        1267,
+        1303,
+        1259,
+        1327
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 7,
+      "p50": 0.23236774067231636,
+      "p90": 135.06267474240144,
+      "p99": 262.3300104428861,
+      "queue_p99": 262.111010442886,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 210,
+        "eligible_without_first_token": 160
+      },
+      "drained_at": 2148.73,
+      "assigned": [
+        1236,
+        1280,
+        1314,
+        1316
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 8,
+      "p50": 0.23914681749897682,
+      "p90": 51.186129991838925,
+      "p99": 217.66090410979746,
+      "queue_p99": 217.1696029433583,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 171,
+        "eligible_without_first_token": 123
+      },
+      "drained_at": 2066.55,
+      "assigned": [
+        1326,
+        1374,
+        1315,
+        1308
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 9,
+      "p50": 0.22732298566188547,
+      "p90": 137.87116633961114,
+      "p99": 280.87746156713115,
+      "queue_p99": 280.736211567131,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 216,
+        "eligible_without_first_token": 173
+      },
+      "drained_at": 2120.5,
+      "assigned": [
+        1325,
+        1257,
+        1321,
+        1292
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "random",
+      "seed": 10,
+      "p50": 0.22988863121918257,
+      "p90": 187.89200220758016,
+      "p99": 247.4217614442448,
+      "queue_p99": 247.07728590113106,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 243,
+        "eligible_without_first_token": 192
+      },
+      "drained_at": 2105.33,
+      "assigned": [
+        1281,
+        1296,
+        1299,
+        1301
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 1,
+      "p50": 0.17088812425134847,
+      "p90": 0.4866474182649654,
+      "p99": 1.109469398830413,
+      "queue_p99": 0.009956857792076335,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 54,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1948.95,
+      "assigned": [
+        1391,
+        1472,
+        1461,
+        852
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 2,
+      "p50": 0.16837910381536858,
+      "p90": 0.5316306767610968,
+      "p99": 2.7376077343369616,
+      "queue_p99": 2.4574255464738144,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 45,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1878.11,
+      "assigned": [
+        1483,
+        1520,
+        1340,
+        897
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 3,
+      "p50": 0.17001543372691685,
+      "p90": 0.506718878529,
+      "p99": 1.3273810571297986,
+      "queue_p99": 0.29929413902596025,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 45,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1868.6,
+      "assigned": [
+        1460,
+        1518,
+        1469,
+        910
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 4,
+      "p50": 0.1672987711309588,
+      "p90": 0.47051668148901626,
+      "p99": 1.1377310864667294,
+      "queue_p99": 0.009931040845685857,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 44,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1873.67,
+      "assigned": [
+        1472,
+        1473,
+        1411,
+        927
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 5,
+      "p50": 0.16814835339738465,
+      "p90": 0.47585343062530683,
+      "p99": 1.1396553174522523,
+      "queue_p99": 0.009874930009772243,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 51,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1891.04,
+      "assigned": [
+        1439,
+        1477,
+        1491,
+        865
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 6,
+      "p50": 0.169325269771889,
+      "p90": 0.48313301623079496,
+      "p99": 1.450201036913768,
+      "queue_p99": 0.009992031857080974,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 27,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1856.76,
+      "assigned": [
+        1394,
+        1439,
+        1483,
+        840
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 7,
+      "p50": 0.16863970756980962,
+      "p90": 0.4924492677305352,
+      "p99": 1.2781845104361764,
+      "queue_p99": 0.009924019766799574,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1872.85,
+      "assigned": [
+        1389,
+        1488,
+        1419,
+        850
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 8,
+      "p50": 0.16707066352546462,
+      "p90": 0.46139914854671815,
+      "p99": 1.0683884511934139,
+      "queue_p99": 0.00989983392588556,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1886.04,
+      "assigned": [
+        1470,
+        1497,
+        1466,
+        890
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 9,
+      "p50": 0.1686409457818172,
+      "p90": 0.4712148337430335,
+      "p99": 1.1101940937894312,
+      "queue_p99": 0.009920578503056277,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 35,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1874.61,
+      "assigned": [
+        1451,
+        1368,
+        1502,
+        874
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req",
+      "seed": 10,
+      "p50": 0.16873335604020667,
+      "p90": 0.48216029146601613,
+      "p99": 1.1380384607713268,
+      "queue_p99": 0.009896972709611873,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1921.96,
+      "assigned": [
+        1436,
+        1405,
+        1431,
+        905
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 1,
+      "p50": 0.17325564926255765,
+      "p90": 0.4900419267582947,
+      "p99": 1.237513319247114,
+      "queue_p99": 0.009966128879796088,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 53,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1925.02,
+      "assigned": [
+        1402,
+        1435,
+        1426,
+        913
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 2,
+      "p50": 0.16935351335519044,
+      "p90": 0.5253525268836938,
+      "p99": 2.4015838526345306,
+      "queue_p99": 2.1309500621278517,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 50,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1881.96,
+      "assigned": [
+        1393,
+        1394,
+        1499,
+        954
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 3,
+      "p50": 0.1752692132854463,
+      "p90": 0.5701474574208873,
+      "p99": 2.861753209652761,
+      "queue_p99": 2.626037050567845,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 46,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1870.34,
+      "assigned": [
+        1480,
+        1489,
+        1470,
+        918
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 4,
+      "p50": 0.16818115697560643,
+      "p90": 0.47463900755701616,
+      "p99": 1.2711545946015121,
+      "queue_p99": 0.009989840910748171,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 46,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1872.35,
+      "assigned": [
+        1472,
+        1472,
+        1461,
+        878
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 5,
+      "p50": 0.16968340798439385,
+      "p90": 0.4791280558423523,
+      "p99": 1.2034985129273537,
+      "queue_p99": 0.009910264358040877,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1854.54,
+      "assigned": [
+        1433,
+        1417,
+        1476,
+        946
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 6,
+      "p50": 0.1697665968030151,
+      "p90": 0.48707766617030757,
+      "p99": 1.524745192906721,
+      "queue_p99": 0.4177674410702821,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 30,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1858.33,
+      "assigned": [
+        1440,
+        1418,
+        1392,
+        906
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 7,
+      "p50": 0.17021307462096047,
+      "p90": 0.491155859774949,
+      "p99": 1.165687403039101,
+      "queue_p99": 0.00990671209615357,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 50,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1931.47,
+      "assigned": [
+        1482,
+        1391,
+        1393,
+        880
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 8,
+      "p50": 0.16752615004418203,
+      "p90": 0.46953383562413364,
+      "p99": 1.1195252668574085,
+      "queue_p99": 0.009911876412047604,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 41,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1887.87,
+      "assigned": [
+        1472,
+        1464,
+        1433,
+        954
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 9,
+      "p50": 0.16962758241606934,
+      "p90": 0.4642568582955846,
+      "p99": 1.123437175553363,
+      "queue_p99": 0.009924515400712153,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1879.35,
+      "assigned": [
+        1410,
+        1436,
+        1481,
+        868
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c",
+      "seed": 10,
+      "p50": 0.1692730376476561,
+      "p90": 0.4827395172862907,
+      "p99": 1.1288747012761178,
+      "queue_p99": 0.00990313599277215,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 50,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1863.07,
+      "assigned": [
+        1437,
+        1459,
+        1401,
+        880
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 1,
+      "p50": 0.28490752906498074,
+      "p90": 7.058775347739356,
+      "p99": 16.25536246463639,
+      "queue_p99": 15.945371948669617,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 62,
+        "eligible_without_first_token": 7
+      },
+      "drained_at": 1942.69,
+      "assigned": [
+        1427,
+        1358,
+        1609,
+        782
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 2,
+      "p50": 0.28445554481163526,
+      "p90": 7.955763278113068,
+      "p99": 19.28833640296034,
+      "queue_p99": 19.028818190404536,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 57,
+        "eligible_without_first_token": 13
+      },
+      "drained_at": 1881.2,
+      "assigned": [
+        1659,
+        1416,
+        1447,
+        718
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 3,
+      "p50": 0.36037928726614155,
+      "p90": 8.160929489895125,
+      "p99": 20.571770431246023,
+      "queue_p99": 20.43977043124596,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 61,
+        "eligible_without_first_token": 18
+      },
+      "drained_at": 1880.05,
+      "assigned": [
+        1567,
+        1511,
+        1508,
+        771
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 4,
+      "p50": 0.3105772563086475,
+      "p90": 6.839211300358784,
+      "p99": 18.28491114146368,
+      "queue_p99": 17.882911141463637,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 56,
+        "eligible_without_first_token": 5
+      },
+      "drained_at": 1877.03,
+      "assigned": [
+        1514,
+        1658,
+        1416,
+        695
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 5,
+      "p50": 0.27976597761471567,
+      "p90": 4.976085237333052,
+      "p99": 11.736292225194347,
+      "queue_p99": 11.538572568280188,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 50,
+        "eligible_without_first_token": 6
+      },
+      "drained_at": 1850.54,
+      "assigned": [
+        1487,
+        1573,
+        1584,
+        628
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 6,
+      "p50": 0.323255232804911,
+      "p90": 7.938347739838946,
+      "p99": 19.797968775932077,
+      "queue_p99": 19.541911020356906,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 38,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1858.36,
+      "assigned": [
+        1451,
+        1646,
+        1304,
+        755
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 7,
+      "p50": 0.28421387093942485,
+      "p90": 6.093386402936176,
+      "p99": 13.795198337088095,
+      "queue_p99": 13.602448337088163,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 55,
+        "eligible_without_first_token": 7
+      },
+      "drained_at": 1911.63,
+      "assigned": [
+        1556,
+        1483,
+        1486,
+        621
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 8,
+      "p50": 0.23643999979236696,
+      "p90": 3.647536620779647,
+      "p99": 12.505635665161208,
+      "queue_p99": 12.40655870552223,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 41,
+        "eligible_without_first_token": 4
+      },
+      "drained_at": 1886.88,
+      "assigned": [
+        1518,
+        1554,
+        1541,
+        710
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 9,
+      "p50": 0.25581580331413534,
+      "p90": 4.771095577164147,
+      "p99": 23.28360063368268,
+      "queue_p99": 23.18730063368264,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1925.93,
+      "assigned": [
+        1475,
+        1577,
+        1393,
+        750
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "initial_tok",
+      "seed": 10,
+      "p50": 0.246177419410742,
+      "p90": 4.56763100060121,
+      "p99": 11.698486595644226,
+      "queue_p99": 11.571380386495548,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1863.7,
+      "assigned": [
+        1408,
+        1547,
+        1573,
+        649
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 1,
+      "p50": 0.26393486609390493,
+      "p90": 4.041225056142025,
+      "p99": 9.707534581995787,
+      "queue_p99": 9.533741127913004,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 56,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1912.03,
+      "assigned": [
+        1519,
+        1372,
+        1547,
+        738
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 2,
+      "p50": 0.29971810885635364,
+      "p90": 6.552489527044486,
+      "p99": 18.046115816940414,
+      "queue_p99": 17.913739286306964,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 55,
+        "eligible_without_first_token": 9
+      },
+      "drained_at": 1898.15,
+      "assigned": [
+        1519,
+        1541,
+        1467,
+        713
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 3,
+      "p50": 0.40758698747561084,
+      "p90": 9.592031420751255,
+      "p99": 22.661329934279593,
+      "queue_p99": 22.54927993427964,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 64,
+        "eligible_without_first_token": 12
+      },
+      "drained_at": 1879.61,
+      "assigned": [
+        1478,
+        1571,
+        1551,
+        757
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 4,
+      "p50": 0.4185448971832102,
+      "p90": 9.075003606693826,
+      "p99": 17.97578411660089,
+      "queue_p99": 17.783640297930447,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 54,
+        "eligible_without_first_token": 13
+      },
+      "drained_at": 1874.27,
+      "assigned": [
+        1385,
+        1664,
+        1575,
+        659
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 5,
+      "p50": 0.2637046160996306,
+      "p90": 4.2525011262513885,
+      "p99": 11.517379486924483,
+      "queue_p99": 11.426675401014336,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 48,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1860.49,
+      "assigned": [
+        1320,
+        1626,
+        1557,
+        769
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 6,
+      "p50": 0.3152138635234678,
+      "p90": 8.753189669769654,
+      "p99": 16.785376513749156,
+      "queue_p99": 16.52360107760569,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 41,
+        "eligible_without_first_token": 6
+      },
+      "drained_at": 1870.55,
+      "assigned": [
+        1560,
+        1486,
+        1482,
+        628
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 7,
+      "p50": 0.27425157811376266,
+      "p90": 5.2821522699530306,
+      "p99": 15.442001530611833,
+      "queue_p99": 15.137153118906781,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 61,
+        "eligible_without_first_token": 12
+      },
+      "drained_at": 1916.87,
+      "assigned": [
+        1570,
+        1286,
+        1520,
+        770
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 8,
+      "p50": 0.3023815061694677,
+      "p90": 6.15435078770804,
+      "p99": 11.456313866963796,
+      "queue_p99": 11.31496898057867,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 43,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1889.89,
+      "assigned": [
+        1603,
+        1490,
+        1514,
+        716
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 9,
+      "p50": 0.2888252610124482,
+      "p90": 6.061598926007946,
+      "p99": 20.748238908490976,
+      "queue_p99": 20.565238908490983,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 42,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1883.76,
+      "assigned": [
+        1548,
+        1437,
+        1570,
+        640
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok",
+      "seed": 10,
+      "p50": 0.23087284206212644,
+      "p90": 2.789248559968769,
+      "p99": 6.762208618685918,
+      "queue_p99": 6.580967452271352,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 53,
+        "eligible_without_first_token": 4
+      },
+      "drained_at": 1862.28,
+      "assigned": [
+        1490,
+        1577,
+        1383,
+        727
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 1,
+      "p50": 0.2224981468975784,
+      "p90": 2.548641190403714,
+      "p99": 8.53965405996155,
+      "queue_p99": 8.321853436439369,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 52,
+        "eligible_without_first_token": 4
+      },
+      "drained_at": 1912.44,
+      "assigned": [
+        1410,
+        1437,
+        1560,
+        769
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 2,
+      "p50": 0.2655528132750078,
+      "p90": 4.839144336620848,
+      "p99": 13.10343660911849,
+      "queue_p99": 12.857733366733783,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 52,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1906.84,
+      "assigned": [
+        1573,
+        1532,
+        1476,
+        659
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 3,
+      "p50": 0.2527899694566713,
+      "p90": 4.363840894865916,
+      "p99": 9.780358754954023,
+      "queue_p99": 9.560449724581645,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 52,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1875.75,
+      "assigned": [
+        1560,
+        1621,
+        1475,
+        701
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 4,
+      "p50": 0.24826931803504237,
+      "p90": 4.1969054199471145,
+      "p99": 11.067189018491945,
+      "queue_p99": 10.89022171233205,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1875.65,
+      "assigned": [
+        1496,
+        1596,
+        1513,
+        678
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 5,
+      "p50": 0.22034422993417024,
+      "p90": 2.010138963292718,
+      "p99": 5.738924528700636,
+      "queue_p99": 5.5132350846260465,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 48,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1852.12,
+      "assigned": [
+        1473,
+        1522,
+        1512,
+        765
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 6,
+      "p50": 0.23969633761822706,
+      "p90": 3.892009924235367,
+      "p99": 10.615959368622612,
+      "queue_p99": 10.392501328172784,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 27,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1854.57,
+      "assigned": [
+        1621,
+        1547,
+        1281,
+        707
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 7,
+      "p50": 0.22222457927182404,
+      "p90": 2.5689490710197163,
+      "p99": 10.443893380474947,
+      "queue_p99": 10.350114169417566,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 45,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1867.44,
+      "assigned": [
+        1516,
+        1445,
+        1416,
+        769
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 8,
+      "p50": 0.24714462120354597,
+      "p90": 3.2606023492742224,
+      "p99": 6.951566562416474,
+      "queue_p99": 6.743982775564518,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 39,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1942.33,
+      "assigned": [
+        1433,
+        1567,
+        1615,
+        708
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 9,
+      "p50": 0.20104790615005186,
+      "p90": 1.1977201554404928,
+      "p99": 5.365001110255093,
+      "queue_p99": 5.1361979252932315,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 38,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1925.06,
+      "assigned": [
+        1485,
+        1373,
+        1565,
+        772
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "remaining_tok_oracle",
+      "seed": 10,
+      "p50": 0.20864531282018106,
+      "p90": 1.968550655851459,
+      "p99": 8.676443494165937,
+      "queue_p99": 8.367125031407,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 54,
+        "eligible_without_first_token": 4
+      },
+      "drained_at": 1854.29,
+      "assigned": [
+        1398,
+        1446,
+        1474,
+        859
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 1,
+      "p50": 0.17697928810189012,
+      "p90": 0.5712917715795953,
+      "p99": 4.726274518996206,
+      "queue_p99": 4.478674282917382,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 52,
+        "eligible_without_first_token": 2
+      },
+      "drained_at": 1891.41,
+      "assigned": [
+        1420,
+        1368,
+        1513,
+        875
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 2,
+      "p50": 0.17663682950046677,
+      "p90": 0.6421883574837466,
+      "p99": 5.598932795715427,
+      "queue_p99": 5.295750846587225,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1879.89,
+      "assigned": [
+        1429,
+        1469,
+        1413,
+        929
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 3,
+      "p50": 0.1871070143797624,
+      "p90": 0.7931111768450592,
+      "p99": 6.480778855406413,
+      "queue_p99": 6.152297576700903,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1909.06,
+      "assigned": [
+        1440,
+        1552,
+        1473,
+        892
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 4,
+      "p50": 0.17765932894690195,
+      "p90": 0.646565412505197,
+      "p99": 4.190647566082362,
+      "queue_p99": 3.9293068191414022,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 45,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1878.32,
+      "assigned": [
+        1403,
+        1498,
+        1505,
+        877
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 5,
+      "p50": 0.17764645903571363,
+      "p90": 0.558266314190746,
+      "p99": 3.0538652792258745,
+      "queue_p99": 2.455057377121875,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1852.17,
+      "assigned": [
+        1516,
+        1399,
+        1442,
+        915
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 6,
+      "p50": 0.17614410177009177,
+      "p90": 0.5984175734302681,
+      "p99": 4.365294960123947,
+      "queue_p99": 4.115994960123999,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 30,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1854.86,
+      "assigned": [
+        1394,
+        1484,
+        1387,
+        891
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 7,
+      "p50": 0.17650287652020324,
+      "p90": 0.5654283408509855,
+      "p99": 2.834535191888108,
+      "queue_p99": 2.553584250822041,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1887.18,
+      "assigned": [
+        1370,
+        1458,
+        1440,
+        878
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 8,
+      "p50": 0.1751954854730684,
+      "p90": 0.5372466871159816,
+      "p99": 2.730938703765787,
+      "queue_p99": 2.5533099456953323,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 40,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1886.34,
+      "assigned": [
+        1467,
+        1461,
+        1437,
+        958
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 9,
+      "p50": 0.17548320406081075,
+      "p90": 0.5373104338194707,
+      "p99": 2.589442647454689,
+      "queue_p99": 2.4115344900238256,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 34,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1882.44,
+      "assigned": [
+        1393,
+        1451,
+        1465,
+        886
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "least_req_stale",
+      "seed": 10,
+      "p50": 0.17209060343930105,
+      "p90": 0.5458200751972981,
+      "p99": 2.3580173806453786,
+      "queue_p99": 1.8976918631727813,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 52,
+        "eligible_without_first_token": 4
+      },
+      "drained_at": 1862.57,
+      "assigned": [
+        1438,
+        1432,
+        1406,
+        901
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 1,
+      "p50": 0.17306563630995697,
+      "p90": 0.5032891332771214,
+      "p99": 2.024558966433915,
+      "queue_p99": 1.3467731122154873,
+      "n": 5020,
+      "eligible": 5020,
+      "arrived": 5176,
+      "completed": 5176,
+      "horizon": {
+        "pending_total": 52,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1920.85,
+      "assigned": [
+        1401,
+        1395,
+        1449,
+        931
+      ],
+      "workload_sha256": "5b5c968a94b62e097dfa191c42161cdac99a32f65456d02ee1b6c81627cd75a9"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 2,
+      "p50": 0.17257535403859947,
+      "p90": 0.5687828709498604,
+      "p99": 5.610430017480667,
+      "queue_p99": 5.3953379696281445,
+      "n": 5058,
+      "eligible": 5058,
+      "arrived": 5240,
+      "completed": 5240,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1881.07,
+      "assigned": [
+        1407,
+        1437,
+        1524,
+        872
+      ],
+      "workload_sha256": "938c04f9948f4d278d4dbd4c4c75e09c08b278c518856a89dc3de7a9abc27bb1"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 3,
+      "p50": 0.1785757550804874,
+      "p90": 0.6093725288698693,
+      "p99": 3.941733078212849,
+      "queue_p99": 3.7057830782128462,
+      "n": 5163,
+      "eligible": 5163,
+      "arrived": 5357,
+      "completed": 5357,
+      "horizon": {
+        "pending_total": 48,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1899.08,
+      "assigned": [
+        1551,
+        1452,
+        1419,
+        935
+      ],
+      "workload_sha256": "d652cbad809aad28413de5b8f799c4dbf551c0cfb8420c3d4f4bcc7a89d19600"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 4,
+      "p50": 0.17066480773485182,
+      "p90": 0.5231970522454503,
+      "p99": 2.899956241877362,
+      "queue_p99": 2.6285548001474126,
+      "n": 5119,
+      "eligible": 5119,
+      "arrived": 5283,
+      "completed": 5283,
+      "horizon": {
+        "pending_total": 48,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1873.07,
+      "assigned": [
+        1476,
+        1485,
+        1416,
+        906
+      ],
+      "workload_sha256": "da66ab79d62697996ae07e727fd982ab8857833ece463fb683128ac33ab394cf"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 5,
+      "p50": 0.1726782307839585,
+      "p90": 0.4864291398682212,
+      "p99": 1.325622016137686,
+      "queue_p99": 0.027020969568184228,
+      "n": 5098,
+      "eligible": 5098,
+      "arrived": 5272,
+      "completed": 5272,
+      "horizon": {
+        "pending_total": 47,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1856.66,
+      "assigned": [
+        1446,
+        1451,
+        1447,
+        928
+      ],
+      "workload_sha256": "3128c86d6987c335bcf963b277811227ca8e13c294d28c9ccbec82bea196302e"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 6,
+      "p50": 0.16987908148234965,
+      "p90": 0.5081715296541347,
+      "p99": 2.0184757728779914,
+      "queue_p99": 1.2756814821728995,
+      "n": 4992,
+      "eligible": 4992,
+      "arrived": 5156,
+      "completed": 5156,
+      "horizon": {
+        "pending_total": 30,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1856.8,
+      "assigned": [
+        1433,
+        1397,
+        1441,
+        885
+      ],
+      "workload_sha256": "c1dc9f8e309f23a5eea5697064161a96f226e1dddd1f33057008cc98185bcf0a"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 7,
+      "p50": 0.17113333160364164,
+      "p90": 0.4974468792904645,
+      "p99": 1.2920176578415976,
+      "queue_p99": 0.009966760627321491,
+      "n": 4960,
+      "eligible": 4960,
+      "arrived": 5146,
+      "completed": 5146,
+      "horizon": {
+        "pending_total": 49,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1886.48,
+      "assigned": [
+        1458,
+        1387,
+        1408,
+        893
+      ],
+      "workload_sha256": "c3d58fabefce33068a279492b1101b3c621365f8f3df50a7b8d383349cacec85"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 8,
+      "p50": 0.16999380733966518,
+      "p90": 0.47301110302964844,
+      "p99": 1.209064051110289,
+      "queue_p99": 0.009971018840147394,
+      "n": 5168,
+      "eligible": 5168,
+      "arrived": 5323,
+      "completed": 5323,
+      "horizon": {
+        "pending_total": 37,
+        "eligible_without_first_token": 0
+      },
+      "drained_at": 1884.39,
+      "assigned": [
+        1483,
+        1442,
+        1452,
+        946
+      ],
+      "workload_sha256": "05f33273242481eb7e72b4ac2b2aeb3e5e166dd4cec05a48561b488ad84aba7f"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 9,
+      "p50": 0.17186857756928475,
+      "p90": 0.48391739803298606,
+      "p99": 1.2947490298065532,
+      "queue_p99": 0.009970309404252475,
+      "n": 5038,
+      "eligible": 5038,
+      "arrived": 5195,
+      "completed": 5195,
+      "horizon": {
+        "pending_total": 37,
+        "eligible_without_first_token": 1
+      },
+      "drained_at": 1880.24,
+      "assigned": [
+        1433,
+        1433,
+        1413,
+        916
+      ],
+      "workload_sha256": "2821423512f11d516d848732112e0ba52c39841633186d4ceda781117f8a413b"
+    },
+    {
+      "scenario": "hetero",
+      "policy": "p2c_stale",
+      "seed": 10,
+      "p50": 0.17077048486930835,
+      "p90": 0.49248824951428105,
+      "p99": 1.2647214416487031,
+      "queue_p99": 0.009959910098586988,
+      "n": 5028,
+      "eligible": 5028,
+      "arrived": 5177,
+      "completed": 5177,
+      "horizon": {
+        "pending_total": 51,
+        "eligible_without_first_token": 3
+      },
+      "drained_at": 1860.89,
+      "assigned": [
+        1441,
+        1446,
+        1392,
+        898
+      ],
+      "workload_sha256": "26105933e45ae4f5f37f3d8080d6f041064b5bbee5780b447f7bd843b1317fc8"
+    }
+  ]
+}
