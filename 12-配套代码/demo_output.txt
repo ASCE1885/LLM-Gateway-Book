@@ -1,0 +1,7 @@
+reserve A: reserved
+settle A: credit=1800, available=8800
+settle A again: replayed=True
+reserve oversized: oversized
+reserve C: limited, wait=6.201s, Retry-After=7
+B usage unknown: available=800
+late settle B: actual=1000, credit=0
