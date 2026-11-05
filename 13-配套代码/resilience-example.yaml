@@ -1,0 +1,52 @@
+# 教学伪配置：不对应任何产品的可执行字段。
+resilience:
+  transport_retry_owner: gateway
+  implicit_sdk_retries: 0          # 需分别落实到应用侧和网关出站 SDK
+  limits:
+    max_upstream_attempts: 3       # 首次 + 重试 + Fallback，共享上限
+    total_deadline_seconds: 20     # 包含排队、等待和调用；进入时取可信截止时间的较早者
+    reserve_resources_each_attempt: true
+  eligibility:
+    require_replay_safe: true
+    preserve_committed_response: true
+    transparent_retry_after_business_output: false
+    stop_on: [caller_cancelled, deadline_exceeded, policy_denied, replay_unsafe]
+  retry:
+    recoverable_classes: [transient_transport, transient_overload, temporary_rate_limit]
+    backoff: bounded_exponential_jitter
+    retry_after: minimum_wait_in_affected_scope
+    insufficient_time: stop
+    target_selection: eligible_targets_by_failure_scope
+  extra_attempt_budget:
+    scope: tenant_and_service_entry
+    window_seconds: 60
+    basis: first_upstream_attempts  # 不以成功数为分母；跨目标共用
+    max_ratio: 0.10
+    includes: [retry, fallback]
+    startup_allowance: 0           # 本例没有独立的低流量启动额度
+  availability:
+    isolate_by_failure_scope: true # 部署、凭证、配额域等分别处理
+    backend_breaker:
+      window_seconds: 60
+      min_completed_attempts: 20
+      failure_ratio_at_least: 0.50
+      count_as_failure: [backend_transport_failure, backend_overload, stream_protocol_failure]
+      exclude: [caller_cancelled, invalid_request, policy_denied, temporary_rate_limit]
+      open_seconds: 30
+      half_open:
+        max_concurrent_probes: 1   # 同一熔断范围内的总上限，不是每实例各一份
+        probe_timeout_seconds: 5  # 仍受请求剩余时间约束
+        consecutive_successes: 3
+        success: upstream_call_completed_normally
+        on_failure: reopen
+        reject_stale_probe_results: true
+      recovery: gradual_traffic_ramp
+  fallback:
+    inherit_constraints: [region, account, capability, output_contract, state, budget]
+    allow_contract_degradation: false
+    prevent_chain_cycles: true
+    candidates:
+      chat-default: [chat-compatible-replica, chat-validated-alternative]
+      embedding-default: [embedding-compatible-replica]
+    embedding: require_same_index_compatibility_profile
+    no_eligible_target: explicit_failure
