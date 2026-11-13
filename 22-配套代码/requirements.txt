@@ -1,0 +1,2 @@
+# SDK 固定版本；GenAI 语义约定快照另见 README，不由此依赖版本推导。
+opentelemetry-sdk==1.38.0

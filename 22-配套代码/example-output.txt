@@ -1,0 +1,22 @@
+== Trace（相对入站起点，ms；全部为合成数据）
+POST /v1/chat/completions [SERVER] 0–620 status=UNSET
+  guardrail input [INTERNAL] 0–30 status=UNSET
+  chat model-a [CLIENT] 30–600 status=UNSET
+    POST [CLIENT] 30–110 status=ERROR
+    retry backoff [INTERNAL] 110–160 status=UNSET
+    POST [CLIENT] 160–600 status=UNSET
+== Metric（只显示实测样本；未记录不是零）
+gen_ai.client.inference.duration: count=1, sum=0.570s; {'gen_ai.operation.name': 'chat', 'gen_ai.provider.name': 'example', 'gen_ai.request.model': 'model-a', 'gen_ai.response.model': 'model-a-2026'}
+gen_ai.client.inference.time_to_first_chunk: count=1, sum=0.430s; {'gen_ai.operation.name': 'chat', 'gen_ai.provider.name': 'example', 'gen_ai.request.model': 'model-a'}
+llm_gateway.upstream.attempt.time_to_first_chunk: count=1, sum=0.300s; {'gen_ai.operation.name': 'chat', 'gen_ai.provider.name': 'example', 'gen_ai.request.model': 'model-a'}
+llm_gateway.response.time_to_first_content_write: count=1, sum=0.480s; {'route': 'chat'}
+gen_ai.client.inference.time_per_output_chunk: count=2, sum=0.080s; {'gen_ai.operation.name': 'chat', 'gen_ai.provider.name': 'example', 'gen_ai.request.model': 'model-a'}
+gen_ai.client.inference.usage.input_tokens: value=1200; {'gen_ai.operation.name': 'chat', 'gen_ai.provider.name': 'example', 'gen_ai.request.model': 'model-a', 'gen_ai.token.modality': 'unknown'}
+gen_ai.client.inference.usage.output_tokens: value=24; {'gen_ai.operation.name': 'chat', 'gen_ai.provider.name': 'example', 'gen_ai.request.model': 'model-a', 'gen_ai.token.modality': 'unknown'}
+llm_gateway.upstream.usage_unknown: value=1; {'gen_ai.operation.name': 'chat', 'gen_ai.provider.name': 'example', 'gen_ai.request.model': 'model-a', 'outcome': 'error'}
+== Milestones（ms）
+first_content_received=460
+first_content_written=480
+upstream_finished=600
+gateway_finished=620
+已知用量按提供方报告累计；缺失 usage 的尝试另计未知，不能据此完成费用对账。
